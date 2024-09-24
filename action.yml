@@ -4,6 +4,9 @@ inputs:
   branch_name:
     description: 'GitHub branch name to deploy'
     required: true
+  display_name:
+    description: 'Display name'
+    required: true
   amplify_command:
     description: 'amplify command: SUPPORTED: [deploy, delete]'
     required: true
