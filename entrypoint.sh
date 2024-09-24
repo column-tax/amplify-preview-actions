@@ -5,6 +5,7 @@ set -e
 BRANCH_NAME=$1
 AMPLIFY_COMMAND=$2
 COMMENT_URL=$3
+DISPLAY_NAME=$4
 
 if [ -z "$AWS_ACCESS_KEY_ID" ] || [ -z "$AWS_SECRET_ACCESS_KEY" ] ; then
   echo "You must provide the action with both AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY environment variables in order to deploy"
@@ -52,7 +53,7 @@ EOF
 case $AMPLIFY_COMMAND in
 
   deploy)
-    sh -c "aws amplify create-branch --app-id=${AmplifyAppId} --branch-name=$BRANCH_NAME  \
+    sh -c "aws amplify create-branch --app-id=${AmplifyAppId} --branch-name=$BRANCH_NAME --display-name=$DISPLAY_NAME \
               ${backend_env_arg} ${environment_variables_arg} --region=${AWS_REGION}"
 
     sleep 10
