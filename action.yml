@@ -22,6 +22,7 @@ runs:
     - ${{ inputs.branch_name }}
     - ${{ inputs.amplify_command }}
     - ${{ inputs.comments_url }}
+    - ${{ inputs.display_name }}
 
 branding:
   icon: 'git-pull-request'
