@@ -54,6 +54,7 @@ case $AMPLIFY_COMMAND in
 
   deploy)
     sh -c "aws amplify create-branch --app-id=${AmplifyAppId} --branch-name=$BRANCH_NAME --display-name=$DISPLAY_NAME \
+              ${backend_env_arg} ${environment_variables_arg} --region=${AWS_REGION} || aws amplify update-branch --app-id=${AmplifyAppId} --branch-name=$BRANCH_NAME --display-name=$DISPLAY_NAME \
               ${backend_env_arg} ${environment_variables_arg} --region=${AWS_REGION}"
 
     sleep 10
